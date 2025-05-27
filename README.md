@@ -40,19 +40,22 @@ npx playwright show-report
 
 ```
 project-root/
+├── pages                                                  # Page Object Model (POM) classes
+│   ├── LogInPage.ts                                         # Page class for login
+│   ├── RegisterPage.ts                                      # Page class for registration
+├── utils                                                  # Utility/helper functions
+│   ├── common-setup.ts                                      # SShared functions: delete account, add product, check cart
 ├── tests                                                  # Included script to run testcases
-│   ├── tc1-register-user.test.ts                          # Test for user registration
-│   ├── tc2-login-success.test.ts                          # Test for successful login
-│   ├── tc3-login-unsuccess.test.ts                        # Test for unsuccessful login attempt
-│   ├── tc4-logout.test.ts                                 # Test for logout functionality
-│   ├── tc5-register-existing-email.test.ts                # Test registering with an existing email
-│   ├── tc6-products-persisted-new-tab.test.ts             # Check product persistence in new tab
-│   ├── tc7-products-persisted-login-new-browser.test.ts   # Check session persistence in new browser
-├── utils                                                  # Included all utility functions
-│   ├── common-setup.ts                                    # Shared utilities and setup code
+│   ├── tc1-register-user.test.ts                            # Test for user registration
+│   ├── tc2-login-success.test.ts                            # Test for successful login
+│   ├── tc3-login-unsuccess.test.ts                          # Test for unsuccessful login attempt
+│   ├── tc4-logout.test.ts                                   # Test for logout functionality
+│   ├── tc5-register-existing-email.test.ts                  # Test registering with an existing email
+│   ├── tc6-products-persisted-new-tab.test.ts               # Check product persistence in new tab
+│   ├── tc7-products-persisted-login-new-browser.test.ts     # Check session persistence in new browser
 ├── playwright.config.ts                                   # Playwright configuration file
 ├── README.md                                              # Documentation for setup and usage
-├── package.json                                           # Node.js project manifest
+├── package.json                                           # Node.js project manifest (scripts, dependencies)
 ├── tsconfig.json                                          # TypeScript configuration
 └── test-results/                                          # Output folder for test reports, screenshots, and traces
 ```
