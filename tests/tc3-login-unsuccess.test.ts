@@ -1,5 +1,5 @@
 import { test, expect, Page } from '@playwright/test';
-import { Login } from '../utils/common-setup';
+import { LoginPage } from '../pages/LogInPage';
 
 let page: Page;
 
@@ -16,7 +16,11 @@ test.afterAll(async () => {
 });
 
 test('Test Case 3: Login User with incorrect email and password', async () => {
-    await Login(page, email, password);
+    const loginPage = new LoginPage(page);
+
+    await loginPage.goto();
+    await loginPage.login(email, password);
+    
     await expect(page.getByText('Your email or password is incorrect!')).toBeVisible();
     const errorMess = await page.getByText('Your email or password is incorrect!').isVisible();
         console.log('"Your email or password is incorrect!" is visible', errorMess);
