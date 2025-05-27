@@ -1,5 +1,7 @@
 import { test, expect, Page } from '@playwright/test';
-import { Register, Login  } from '../utils/common-setup';
+import { RegisterPage } from '../pages/RegisterPage';
+import { LoginPage } from '../pages/LogInPage';
+import { DeleteAcc } from '../utils/common-setup';
 
 let page: Page;
 
@@ -13,17 +15,22 @@ test.beforeAll(async ({ browser }) => {
 });
 
 test.afterAll(async () => {
-    await Login(page, email, password);
-    await page.getByRole('link', { name: ' Delete Account' }).click();
-    const deleted = await page.getByText('Account Deleted!').isVisible();
-        console.log('The account is deleted', deleted);
+    const loginPage = new LoginPage(page);
+    await loginPage.goto();
+    await loginPage.login(email, password);
+    await DeleteAcc(page);
     await page.close();
 });
 
 test('Test Case 5: Register User with existing email', async () => {
-    await Register(page, username, email, password);
+    const registerPage = new RegisterPage(page);
+    const loginPage = new LoginPage(page);
+
+    await registerPage.goto();
+    await registerPage.register(username, email, password);
     await page.getByRole('link', { name: ' Logout' }).click();
-    await page.goto('https://www.automationexercise.com');
+    
+    await page.goto('/');
     await expect(page.getByRole('heading', { name: 'AutomationExercise' })).toBeVisible();
     await page.getByRole('link', { name: ' Signup / Login' }).click();
     await expect(page.getByRole('heading', { name: 'New User Signup!' })).toBeVisible();
@@ -33,6 +40,6 @@ test('Test Case 5: Register User with existing email', async () => {
     await page.getByRole('textbox', { name: 'Email Address' }).nth(1).fill(email);
     await page.getByRole('button', { name: 'Signup' }).click();
     await expect(page.getByText('Email Address already exist!')).toBeVisible();
-        const errorMess = await page.getByText('Email Address already exist!').isVisible();
+    const errorMess = await page.getByText('Email Address already exist!').isVisible();
         console.log('"Email Address already exist!" is visible', errorMess);
 });
