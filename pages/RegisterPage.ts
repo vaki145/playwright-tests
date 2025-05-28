@@ -5,12 +5,11 @@ export class RegisterPage {
 
   async goto() {
     await this.page.goto('/');
+    const homepage = await this.page.getByRole('heading', { name: 'AutomationExercise' }).isVisible();
+    console.log('Homepage is visible successfully', homepage);
   }
 
   async register(username: string, email: string, password: string) {
-    const homepage = await this.page.getByRole('heading', { name: 'AutomationExercise' }).isVisible();
-    console.log('Homepage is visible successfully', homepage);
-
     await this.page.getByRole('link', { name: ' Signup / Login' }).click();
     const signupForm = await this.page.getByRole('heading', { name: 'New User Signup!' }).isVisible();
     console.log('"New User Signup!" is visible', signupForm);
