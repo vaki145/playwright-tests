@@ -6,7 +6,7 @@ import { DeleteAcc } from '../utils/common-setup';
 let page: Page;
 
 const username = 'ABC';
-const email = `test12test@example.com`;
+const email = `test+${Date.now()}@example.com`;
 const password = '12345abc';
 
 test.beforeAll(async ({ browser }) => {
