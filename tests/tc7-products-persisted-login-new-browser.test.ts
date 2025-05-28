@@ -37,5 +37,6 @@ test('Test case 7: Verify products in cart are persisted when user logins in ano
   const cartNames = await CheckCart(page2);
   expect(cartNames.sort()).toEqual(addedProductNames.sort());
 
+  await DeleteAcc(page2);
   await browser2.close();
 });
