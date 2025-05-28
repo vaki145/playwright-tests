@@ -1,6 +1,6 @@
 # Playwright Test Suite
 
-This test suite is built using Playwright with TypeScript, aimed at automating end-to-end (E2E) scenarios for a modern web application. The goal is to ensure that critical user flows like registration, login, session management, and logout work reliably under various conditions.
+This test suite is built using Playwright with TypeScript, aimed at automating end-to-end (E2E) scenarios for a modern web application Automation Exercise (https://www.automationexercise.com/). The goal is to ensure that critical user flows like registration, login, session management, and logout work reliably under various conditions.
 
 ## 📦 Setup
 
@@ -44,7 +44,7 @@ project-root/
 │   ├── LogInPage.ts                                         # Page class for login
 │   ├── RegisterPage.ts                                      # Page class for registration
 ├── utils                                                  # Utility/helper functions
-│   ├── common-setup.ts                                      # SShared functions: delete account, add product, check cart
+│   ├── common-setup.ts                                      # Shared functions: delete account, add product, check cart
 ├── tests                                                  # Included script to run testcases
 │   ├── tc1-register-user.test.ts                            # Test for user registration
 │   ├── tc2-login-success.test.ts                            # Test for successful login
@@ -56,7 +56,6 @@ project-root/
 ├── playwright.config.ts                                   # Playwright configuration file
 ├── README.md                                              # Documentation for setup and usage
 ├── package.json                                           # Node.js project manifest (scripts, dependencies)
-├── tsconfig.json                                          # TypeScript configuration
 └── test-results/                                          # Output folder for test reports, screenshots, and traces
 ```
 

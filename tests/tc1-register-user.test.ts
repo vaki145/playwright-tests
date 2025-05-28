@@ -24,9 +24,7 @@ test('Test Case 1: Register User', async ({ page }) => {
     await registerPage.register(username, email, password);
 
     await expect(page.locator('text=Logged in as')).toContainText(`Logged in as ${username}`);
-    const loggedInText = await page.locator('text=Logged in as').textContent();
-    const loginSuccess = loggedInText?.includes(username) ?? false;
-        console.log(`"Logged in as ${username}": is visible`, loginSuccess);
+    console.log(`"Logged in as ${username}": is visible`);
         
     await DeleteAcc(page);
 
