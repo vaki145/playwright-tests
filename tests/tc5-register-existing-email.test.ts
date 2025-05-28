@@ -34,12 +34,12 @@ test('Test Case 5: Register User with existing email', async () => {
     await expect(page.getByRole('heading', { name: 'AutomationExercise' })).toBeVisible();
     await page.getByRole('link', { name: ' Signup / Login' }).click();
     await expect(page.getByRole('heading', { name: 'New User Signup!' })).toBeVisible();
+
     await page.getByRole('textbox', { name: 'Name' }).click();
     await page.getByRole('textbox', { name: 'Name' }).fill(username);
     await page.getByRole('textbox', { name: 'Email Address' }).nth(1).click();
     await page.getByRole('textbox', { name: 'Email Address' }).nth(1).fill(email);
     await page.getByRole('button', { name: 'Signup' }).click();
     await expect(page.getByText('Email Address already exist!')).toBeVisible();
-    const errorMess = await page.getByText('Email Address already exist!').isVisible();
-        console.log('"Email Address already exist!" is visible', errorMess);
+    console.log('"Email Address already exist!" is visible');
 });

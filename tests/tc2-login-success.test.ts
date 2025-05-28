@@ -31,9 +31,7 @@ test('Test Case 2: Login User with correct email and password', async ({ page })
     await loginPage.login(email, password);
 
     await expect(page.locator('text=Logged in as')).toContainText(`Logged in as ${username}`);
-    const loggedInText = await page.locator('text=Logged in as').textContent();
-    const loginSuccess = loggedInText?.includes(username) ?? false;
-        console.log(`"Logged in as ${username}": is visible`, loginSuccess);
+    console.log(`"Logged in as ${username}": is visible`);
 
     await DeleteAcc(page);
 });

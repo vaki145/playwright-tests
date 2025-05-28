@@ -22,6 +22,5 @@ test('Test Case 3: Login User with incorrect email and password', async () => {
     await loginPage.login(email, password);
     
     await expect(page.getByText('Your email or password is incorrect!')).toBeVisible();
-    const errorMess = await page.getByText('Your email or password is incorrect!').isVisible();
-        console.log('"Your email or password is incorrect!" is visible', errorMess);
+    console.log('"Your email or password is incorrect!" is visible');
 });

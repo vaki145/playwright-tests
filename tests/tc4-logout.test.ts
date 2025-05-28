@@ -35,12 +35,9 @@ test('Test Case 4: Logout User', async () => {
     await loginPage.login(email, password);
 
     await expect(page.locator('text=Logged in as')).toContainText(`Logged in as ${username}`);
-    const loggedInText = await page.locator('text=Logged in as').textContent();
-    const loginSuccess = loggedInText?.includes(username) ?? false;
-        console.log(`"Logged in as ${username}": is visible`, loginSuccess);
+    console.log(`"Logged in as ${username}": is visible`);
 
     await page.getByRole('link', { name: ' Logout' }).click();
     await expect(page.getByText('Login to your account')).toBeVisible();
-    const loginForm = await page.getByRole('heading', { name: 'Login to your account' }).isVisible();
-        console.log('Logout successfully > "Login to your account" is visible', loginForm);
+    console.log('Logout successfully > "Login to your account" is visible');
 });
